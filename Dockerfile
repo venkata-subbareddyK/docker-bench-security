@@ -5,6 +5,8 @@ LABEL \
   org.label-schema.url="https://dockerbench.com" \
   org.label-schema.vcs-url="https://github.com/docker/docker-bench-security.git"
 
+USER root
+
 # Switch to the HTTPS endpoint for the apk repositories
 # https://github.com/gliderlabs/docker-alpine/issues/184
 RUN set -eux; \
