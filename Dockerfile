@@ -5,12 +5,11 @@ LABEL \
   org.label-schema.url="https://dockerbench.com" \
   org.label-schema.vcs-url="https://github.com/docker/docker-bench-security.git"
 
-USER root
-
 # Switch to the HTTPS endpoint for the apk repositories
 # https://github.com/gliderlabs/docker-alpine/issues/184
-RUN set -eux; \
-  sed -i 's!http://dl-cdn.alpinelinux.org/!https://alpine.global.ssl.fastly.net/!g' /etc/apk/repositories && \
+# RUN set -eux; \
+#   sed -i 's!http://dl-cdn.alpinelinux.org/!https://alpine.global.ssl.fastly.net/!g' /etc/apk/repositories && \
+RUN echo -e "http://nl.alpinelinux.org/alpine/v3.12/main\nhttp://nl.alpinelinux.org/alpine/v3.12/community" > /etc/apk/repositories && \
   apk add --no-cache \
     iproute2 \
     docker-cli \
